@@ -200,8 +200,8 @@ def train_and_eval(model, model_dir, train_input_fn, eval_input_fn,
   eval_dataset = eval_input_fn()
   callbacks = get_callbacks(model, model_dir)
   history = model.fit(
-      x=train_dataset.repeat(),
-      validation_data=eval_dataset.repeat(),
+      x=train_dataset,
+      validation_data=eval_dataset,
       steps_per_epoch=steps_per_epoch,
       epochs=epochs,
       validation_steps=eval_steps,
