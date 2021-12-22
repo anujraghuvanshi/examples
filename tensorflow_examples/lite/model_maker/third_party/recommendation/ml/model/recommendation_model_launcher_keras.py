@@ -199,13 +199,20 @@ def train_and_eval(model, model_dir, train_input_fn, eval_input_fn,
   train_dataset = train_input_fn()
   eval_dataset = eval_input_fn()
   callbacks = get_callbacks(model, model_dir)
-  history = model.fit(
-      x=train_dataset.repeat(),
-      validation_data=eval_dataset.repeat(),
-      steps_per_epoch=int(8000/batch_size),
-      epochs=10,
-      validation_steps=int(2000/batch_size)),
-      callbacks=callbacks)
+#   history = model.fit(
+#       x=train_dataset.repeat(),
+#       validation_data=eval_dataset.repeat(),
+#       steps_per_epoch=int(8000/batch_size),
+#       epochs=10,
+#       validation_steps=int(2000/batch_size)),
+#       callbacks=callbacks)
+  history = model.fit(training_set.repeat(),
+                    steps_per_epoch=int(8000/batch_size),
+                    epochs=25,
+                    validation_data=test_set.repeat(),
+                    validation_steps=int(2000/batch_size,
+                    callbacks=callbacks
+                  )
   tf.get_logger().info(history)
   return model
 
