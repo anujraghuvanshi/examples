@@ -1,4 +1,4 @@
 pandas==1.0.5
 tensorflow==2.2.0
 absl-py==0.1.6
-google-cloud-bigquery<=2.0.0dev
+google-cloud-bigquery<2.0.0dev
